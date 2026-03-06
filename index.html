@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidsmeetalps</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#fff;--fg:#111;--dim:#888;--accent:#e8336d}
+    html,body{height:100%;overflow:hidden}
+    body{background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Courier New',Courier,monospace;-webkit-font-smoothing:antialiased}
+    ::selection{background:var(--accent);color:#fff}
+    
+    /* Contenitore principale */
+    .block{text-align:center}
+
+    /* Stile comune per i testi */
+    .title{
+      font-family:'Courier New',Courier,monospace;
+      font-size:14px;
+      line-height:1.6;
+      color:var(--fg);
+      opacity:0;
+      /* Punto di partenza: spostato leggermente in basso per l'effetto emersione */
+      transform:translateY(20px); 
+      /* Animazione fluida per opacità e movimento */
+      animation:emergeAndFade 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    /* Stile per il link ENTER */
+    .enter{
+      display:inline-block;
+      margin:45px 0 0 0; /* Spazio sopra l'ENTER */
+      font-family:'Courier New',Courier,monospace;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--dim);
+      text-decoration:none;
+      padding:10px 0;
+      position:relative;
+      opacity:0;
+      /* Stessa animazione dei testi per coerenza */
+      transform:translateY(20px);
+      animation:emergeAndFade 1.0s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      transition:color .3s;
+    }
+
+    /* Gestione dei ritardi (Timing a cascata) */
+    .eng { 
+      animation-delay: 0.2s; 
+      margin-bottom: 10px; /* Spazio tra inglese e italiano */
+    } 
+    .ita { 
+      animation-delay: 1.0s; /* Appare dopo che l'inglese è quasi fermo */
+    } 
+    .btn { 
+      animation-delay: 1.2s; /* Appare per ultimo */
+    } 
+
+    /* Effetto Hover dell'ENTER */
+    .enter::after{content:'';position:absolute;bottom:6px;left:0;width:100%;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+    .enter:hover{color:var(--accent)}
+    .enter:hover::after{transform:scaleX(1)}
+
+    /* NUOVA ANIMAZIONE: Fading ed Emersione dal basso */
+    @keyframes emergeAndFade {
+      0% {
+        opacity: 0;
+        transform: translateY(50px); /* Parte più in basso */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); /* Arriva alla posizione finale */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="block">
+ <!-- <p class="title eng">A gesture of care, an act of stewardship</p> -->
+  
+<p class="title ita" style="margin-bottom: 20px;">Kidsmeetalps</p> 
+<p class="title ita" style="margin-bottom: 50px;">Un gesto di cura, un atto di custodia</p> 
+
+<a href="main.html" class="enter btn">ENTER</a>
+</div>
+
+</body>
+</html>

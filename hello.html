@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidsmeetalps — Hello</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #111;
+      --dim: #000000;
+      --faint: #e0e0e0;
+      --accent: #e8336d;
+      --head: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --body: 'Courier New', Courier, monospace;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--body); background: var(--bg); color: var(--fg); overflow-x: hidden; }
+    ::selection { background: var(--accent); color: #fff; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── CONTAINER ── */
+    .page { 
+      max-width: 1440px; 
+      margin: 0 auto; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 40px 56px;
+    }
+    .nav a {
+      font-family: var(--body); font-size: 11px;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--fg); transition: color .2s;
+    }
+    .nav-right { display: flex; gap: 20px; }
+    .nav a:hover { color: var(--accent); }
+
+    /* ── MAIN ── */
+    .main {
+      flex: 1;
+      padding: 80px 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: start;
+    }
+
+    .main-left h1 {
+      font-family: var(--head); font-weight: 700;
+      font-size: 58px; line-height: 1.15; letter-spacing: -.02em;
+      margin-bottom: 40px;
+    }
+
+    .main-left .info { font-family: var(--body); font-size: 14px; line-height: 1.6; color: var(--fg); }
+    .main-left .info p + p { margin-top: 16px; }
+    .main-left .info a { border-bottom: 1px solid var(--fg); transition: border-color .2s; }
+    .main-left .info a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FORM ── */
+    .contact-form { padding-top: 20px; }
+    .field { margin-bottom: 28px; }
+    .field label {
+      display: block; font-family: var(--body); font-size: 11px;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--fg); margin-bottom: 8px;
+    }
+    .field input, .field textarea {
+      width: 100%; font-family: var(--body); font-size: 14px;
+      color: var(--fg); background: none; border: none;
+      border-bottom: 1px solid var(--fg); padding: 10px 0;
+      outline: none; transition: border-color .2s; resize: none;
+    }
+    .field input:focus, .field textarea:focus { border-bottom: 2px solid var(--accent); }
+    .field textarea { height: 120px; line-height: 1.6; }
+
+    .submit-btn {
+      font-family: var(--body); font-size: 11px;
+      letter-spacing: .06em; text-transform: uppercase;
+      background: none; border: 1px solid var(--fg);
+      color: var(--fg); padding: 12px 32px;
+      cursor: pointer; transition: all 0.25s;
+    }
+    .submit-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── FOOTER ── */
+    .footer-bar {
+      padding: 28px 56px; border-top: 1px solid var(--faint);
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 40px;
+    }
+    .footer-bar a {
+      font-family: var(--body); font-size: 11px;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--fg); transition: color .2s;
+    }
+    .footer-bar .fb-right { display: flex; gap: 20px; }
+    .footer-bar a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px) {
+      .nav-right, .footer-bar .fb-right { display: none; }
+      .main { grid-template-columns: 1fr; gap: 48px; padding: 48px 24px; }
+      .main-left h1 { font-size: 36px; }
+      .nav, .footer-bar { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <nav class="nav">
+      <div><a href="index.html">← INDEX</a></div>
+      <div class="nav-right">
+        <a href="main.html#gallery">GALLERY</a>
+        <a href="main.html#project">PROJECT</a>
+        <a href="main.html#next">NEXT</a>
+        <a href="main.html#partners">PARTNERS</a>
+        <a href="hello.html" style="color:var(--accent)">HELLO</a>
+      </div>
+    </nav>
+
+    <div class="main">
+      <div class="main-left">
+        <h1>Hello!</h1>
+        <div class="info">
+          <p>Per collaborazioni, proposte, domande o semplicemente per dirci Hello!</p>
+          <p>
+            <a href="mailto:hello@kidsmeetalps.org">hello@kidsmeetalps.org</a><br>
+            <a href="https://instagram.com/kidsmeetalps" target="_blank" rel="noopener">@kidsmeetalps</a><br><br><br>
+          </p>
+          <p>
+            Ideazione, direzione e curatela<br>
+            <a href="https://chiarabasilico.studio" target="_blank">chiarabasilico.studio</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <form action="https://formspree.io/f/YOUR_ID" method="POST">
+          <div class="field">
+            <label for="name">NAME</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">EMAIL</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="subject">SUBJECT</label>
+            <input type="text" id="subject" name="subject">
+          </div>
+          <div class="field">
+            <label for="message">MESSAGE</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">SEND</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer-bar">
+      <div><a href="index.html">← INDEX</a></div>
+      <div class="fb-right">
+        <a href="main.html#gallery">GALLERY</a>
+        <a href="main.html#project">PROJECT</a>
+        <a href="main.html#next">NEXT</a>
+        <a href="main.html#partners">PARTNERS</a>
+        <a href="hello.html">HELLO</a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

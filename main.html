@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidsmeetalps — Gesto di cura, atto di custodia</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #111;
+      --dim: #888;
+      --accent: #e8336d;
+      --head: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --body: 'Courier New', Courier, monospace;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--body); background: var(--bg); color: var(--fg); overflow-x: hidden; }
+    ::selection { background: var(--accent); color: #fff; }
+    a { color: inherit; text-decoration: none; }
+
+    .page { max-width: 1440px; margin: 0 auto; }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 40px 56px;
+      position: sticky; top: 0; background: #fff; z-index: 1000;
+    }
+    .nav-left a, .nav-right a {
+      font-family: var(--body); font-size: 11px;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--fg); transition: color .2s;
+    }
+    .nav-right { display: flex; gap: 20px; }
+    .nav-left a:hover, .nav-right a:hover { color: var(--accent); }
+
+    /* ── SCROLL ANCHOR ── */
+    .scroll-anchor { scroll-margin-top: 10px; }
+
+    /* ── HERO ── */
+    .hero { padding: 120px 56px 40px; }
+    .hero h1 {
+      font-family: var(--head); font-weight: 700;
+      font-size: 58px; line-height: 1.2; letter-spacing: -.02em;
+    }
+    .hero-sub {
+      margin-top: 50px;
+      font-family: var(--body); font-size: 14px;
+      line-height: 1.6; max-width: 420px;
+    }
+
+    /* ── SPLIT ── */
+    .split {
+      padding: 0 56px;
+      display: grid; grid-template-columns: 380px 1fr; gap: 0;
+    }
+    .col-left { padding-right: 40px; }
+    .tb { margin-top: 20px; }
+    .tb .tb-label { font-family: var(--body); font-size: 14px; text-transform: uppercase; margin-bottom: 16px; }
+    .tb p { font-family: var(--body); font-size: 14px; line-height: 1.6; }
+    .col-right { display: flex; flex-direction: column; gap: 40px; padding-top: 20px; }
+    .img-row { display: flex; gap: 24px; justify-content: flex-end; }
+    .img-item { overflow: hidden; cursor: pointer; flex-shrink: 0; }
+    .img-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.16,1,.3,1); }
+    .img-item:hover img { transform: scale(1.02); }
+    .ph-box { background: #f4f4f4; }
+
+    /* ── SEPARATOR ── */
+    .sep { border: none; border-top: 8px solid var(--fg); margin: 0; }
+
+    /* ── GRID ── */
+    .grid-full { padding: 80px 56px; }
+    .grid-3x2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    /* ── TITLES ── */
+    .section-title h2 {
+      font-family: var(--head); font-weight: 700; font-size: 72px; line-height: 1.08; letter-spacing: -.02em; margin-top: 30px;
+    }
+
+    /* ── TEXT SECTIONS ── */
+    .two-col-text {
+      padding: 60px 56px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+    }
+    .two-col-text .col-label { font-family: var(--body); font-size: 14px; text-transform: uppercase; margin-bottom: 16px; }
+    .two-col-text p { font-family: var(--body); font-size: 14px; line-height: 1.6; margin-bottom: 32px; }
+
+    /* ── WHAT'S NEXT ── */
+    .whats-next { padding: 0 56px 80px; }
+    .wn-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .wn-top h2, .wn-location { font-family: var(--head); font-weight: 700; font-size: 72px; line-height: 1.08; letter-spacing: -.02em; margin-top: 30px; }
+    .wn-details { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; font-family: var(--body); font-size: 14px; line-height: 1.6; }
+
+    /* ── RETE ── */
+    .rete { padding: 20px 56px 40px; }
+    .rete p { font-family: var(--body); font-size: 14px; line-height: 1.6; max-width: 500px; }
+
+    /* ── MARQUEE ── */
+    .marquee-section { padding: 0 56px 40px; overflow: hidden; }
+    .mq-wrap { overflow: hidden; position: relative; }
+    .mq-track { display: flex; gap: 48px; align-items: center; animation: mq 30s linear infinite; width: max-content; }
+    .mq-track img { height: 32px; width: 100px; object-fit: contain; }
+    @keyframes mq { to { transform: translateX(-50%); } }
+
+    /* ── FOOTER ── */
+    .footer-info { padding: 60px 56px; font-family: var(--body); }
+    .footer-info .fi-label { font-size: 14px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-info .fi-link { font-size: 14px; line-height: 1.6; }
+    .footer-bar { padding: 28px 56px; display: flex; justify-content: space-between; align-items: center; font-family: var(--body); position: relative; z-index: 1000; }
+    .footer-bar a { font-size: 11px; text-transform: uppercase; margin-left: 20px; }
+    .footer-bar .fb-right { display: flex; }
+
+    /* ── MODALE ── */
+    .modal-overlay { 
+      position: fixed; inset: 0; z-index: 10000; background: #fff; 
+      overflow-y: auto; opacity: 0; 
+      visibility: hidden; 
+      pointer-events: none; transition: opacity .3s, visibility .3s; 
+      display: flex; justify-content: center; align-items: center; 
+    }
+    .modal-overlay.open { 
+      opacity: 1; visibility: visible; pointer-events: auto; 
+    }
+    .modal-close { position: fixed; top: 28px; right: 56px; font-family: var(--body); font-size: 11px; cursor: pointer; background: none; border: none; z-index: 10001; }
+    
+    /* FRECCE NAVIGAZIONE MODALE */
+    .modal-nav {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      font-family: var(--body); font-size: 24px; cursor: pointer;
+      background: none; border: none; padding: 20px; z-index: 10002;
+      transition: color .2s;
+    }
+    .modal-nav:hover { color: var(--accent); }
+    .nav-prev { left: 20px; }
+    .nav-next { right: 20px; }
+
+    .modal-body { 
+      padding: 100px 56px; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      width: 100%;
+      min-height: 100%;
+    }
+    
+    .modal-container { 
+      width: min-content; 
+      max-width: 90vw; 
+      pointer-events: auto; 
+    }
+    
+    #modal-img img { display: block; max-width: 90vw; max-height: 65vh; width: auto; height: auto; }
+    
+    .modal-content { margin-top: 30px; color: #000; font-family: var(--body); text-align: left; width: 100%; }
+    
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .meta-block { margin-bottom: 16px; font-size: 14px; line-height: 1.2; text-transform: uppercase; }
+    .meta-label { display: block; margin-bottom: 2px; }
+    .meta-value { display: block; }
+
+    .modal-sep { border: none; border-top: 8px solid #000; margin: 20px 0; width: 100%; }
+    .modal-description { font-size: 14px; line-height: 1.6; }
+
+    /* ── ANIMATION ── */
+    .fi { opacity: 0; transform: translateY(18px); transition: 0.7s ease; }
+    .fi.v { opacity: 1; transform: translateY(0); }
+
+    @media(max-width:900px) {
+      .nav-right { display: none; }
+      .split, .two-col-text, .wn-top, .wn-details { grid-template-columns: 1fr; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .modal-nav { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page" style="padding-top: 40px;">
+
+  <nav class="nav">
+    <div class="nav-left"><a href="index.html">← INDEX</a></div>
+    <div class="nav-right">
+      <a href="#gallery">GALLERY</a>
+      <a href="#project">PROJECT</a>
+      <a href="#next">NEXT</a>
+      <a href="#partners">PARTNERS</a>
+      <a href="hello.html">HELLO</a>
+    </div>
+  </nav>
+
+  <section class="hero fi">
+    <h1>Gesto di cura,<br>atto di custodia</h1>
+    <p class="hero-sub">Progetto arts-based di risignificazione metasemica dei luoghi alpini e delle aree interne. Arte, design e partecipazione come strumenti per reinterpretare il paesaggio e il rapporto metromontano.</p>
+  </section>
+
+  <div id="gallery" class="scroll-anchor"></div>
+
+  <section class="split fi" style="margin-top: 200px;">
+    <div class="col-left">
+      <div class="tb">
+        <p class="tb-label">DISPOSITIVO DI DIALOGO</p>
+        <p>Un progetto educativo, sociale e culturale di dialogo con il territorio. Pratica multidisciplinare che interroga il paesaggio attraverso la lente del contemporaneo: superando la visione puramente estetica, il territorio emerge nella sua complessità di sedimentazione antropica, agendo come soggetto-oggetto da esperire.</p>
+        <p style="margin-top: 2rem; font-weight: 200;">Non c'è paesaggio senza lo sguardo di chi lo attraversa.</p>
+      </div>
+      <div class="tb" style="margin-top: 550px;">
+        <p class="tb-label">UNA COSA SERIA</p>
+        <p>Kidsmeetalps parla ai più piccoli e alle comunità senza semplificare. L'approccio scientifico e artistico si fondono per generare consapevolezza critica.</p>
+      </div>
+    </div>
+    <div class="col-right">
+      <div class="img-row">
+        <div class="img-item" style="width:313px;height:204px;" onclick="openModal(this)" data-title="DISPOSITIVO 01" data-edition="EDIZIONE 2024" data-execution="STAMPA FINE ART" data-desc="Osservazione dei segni antropici nel paesaggio alpino durante la prima fase di mappatura territoriale.">
+          <div class="ph-box"><img src="pic/pic_01.jpg"></div>
+        </div>
+        <div class="img-item" style="width:201px;height:304px;" onclick="openModal(this)" data-title="DETTAGLIO BOSCO" data-edition="EDIZIONE 2023" data-execution="INSTALLAZIONE" data-desc="La sedimentazione storica come traccia visiva nel sottobosco: iconemi di un'economia montana passata.">
+          <div class="ph-box"><img src="pic/pic_02.jpg"></div>
+        </div>
+      </div>
+      <div class="img-row">
+        <div class="img-item" style="width:224px;height:328px;" onclick="openModal(this)" data-title="AZIONE COLLETTIVA" data-edition="EDIZIONE 2024" data-execution="PERFORMANCE" data-desc="Pratica artistica partecipata sui sentieri di alta quota: il corpo come misura dello spazio alpino.">
+          <div class="ph-box"><img src="pic/pic_03.jpg"></div>
+        </div>
+        <div class="img-item" style="width:347px;height:234px;" onclick="openModal(this)" data-title="PAESAGGIO VIVO" data-edition="EDIZIONE 2024" data-execution="FOTOGRAFIA" data-desc="Il teatro dell'abitare contemporaneo nelle aree interne: dove l'artificio incontra la roccia.">
+          <div class="ph-box"><img src="pic/pic_04.jpg"></div>
+        </div>
+      </div>
+      <div class="img-row">
+        <div class="img-item" style="width:347px;height:149px;" onclick="openModal(this)" data-title="ARCHIVIO ICONEMI" data-edition="EDIZIONE 2023" data-execution="RACCOLTA MATERIALI" data-desc="Campionatura di iconemi paesaggistici locali: frammenti di un'identità in continua trasformazione.">
+          <div class="ph-box"><img src="pic/pic_05.jpg"></div>
+        </div>
+        <div class="img-item" style="width:224px;height:328px;" onclick="openModal(this)" data-title="INCONTRO" data-edition="EDIZIONE 2024" data-execution="WORKSHOP" data-desc="Dialogo tra generazioni diverse sul concetto di custodia e cura del bene comune montano.">
+          <div class="ph-box"><img src="pic/pic_06.jpg"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sep" style="margin-top: 200px;">
+
+  <section class="grid-full fi">
+    <div class="grid-3x2">
+      <div class="img-item" onclick="openModal(this)" data-title="SEGNO URBANO" data-edition="2024" data-execution="DIGITAL" data-desc="Interferenze tra ambiente urbano e prealpino."><div class="ph-box" style="aspect-ratio:347/192;"><img src="pic/pic_07.jpg"></div></div>
+      <div class="img-item" onclick="openModal(this)" data-title="MATERIA ALPINI" data-edition="2024" data-execution="DIGITAL" data-desc="Dettaglio materico delle superfici rocciose mappate."><div class="ph-box" style="aspect-ratio:247/328;"><img src="pic/pic_08.jpg"></div></div>
+      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 09" data-edition="2024" data-execution="DIGITAL" data-desc="Esplorazione visiva dei confini boschivi."><div class="ph-box" style="aspect-ratio:347/234;"><img src="pic/pic_09.jpg"></div></div>
+      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 10" data-edition="2024" data-execution="DIGITAL" data-desc="Documentazione fotografica del sentiero delle pozze."><div class="ph-box" style="aspect-ratio:347/192;"><img src="pic/pic_10.jpg"></div></div>
+      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 11" data-edition="2024" data-execution="DIGITAL" data-desc="Studio sulle ombre proiettate dagli iconemi storici."><div class="ph-box" style="aspect-ratio:180/328;"><img src="pic/pic_11.jpg"></div></div>
+      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 12" data-edition="2024" data-execution="DIGITAL" data-desc="Restituzione grafica dell'attività laboratoriale."><div class="ph-box" style="aspect-ratio:347/192;"><img src="pic/pic_12.jpg"></div></div>
+    </div>
+  </section>
+
+  <div id="project" class="scroll-anchor"></div>
+  <hr class="sep" style="margin-top: 200px;">
+
+  <div class="section-title" style="padding: 0 56px;"><h2>PROJECT</h2></div>
+
+  <section class="two-col-text fi">
+    <div>
+      <p class="col-label">PARTECIPAZIONE RIZOMATICA</p>
+      <p>Dialoghiamo con comunità locali, enti, associazioni, università, artisti e professionisti dell'educazione. Attiviamo il tessuto relazionale del territorio, creare opportunità di collaborazione dove prima non esistevano. Una rete che cresce con fare rizomatico, che raggiunge i territori e che da questi si arricchisce.</p>
+      <p class="col-label">ICONEMI DI PAESAGGIO</p>
+      <p>Lavoriamo sugli iconemi paesaggistici, unità elementari di percezione del paesaggio. Non elementi esclusivamente visivi, ma tratti che incarnano cultura, storia e trasformazioni di quel luogo. Ripristinare l'osservazione degli iconemi permette di rigenerare il senso di genius loci di quel paesaggio. La pratica laboratoriale o artistica suggerisce, senza imporre, questo processo di ripristino e reinterpretazione.</p>
+      <p class="col-label">NON ISTITUZIONALE</p>
+      <p>Al centro dell'attenzione ci sono i bambini, considerati non come destinatari passivi di un'offerta educativa, ma come protagonisti attivi del processo creativo e conoscitivo. Laboratori, installazioni e attività artistiche per stimolare la loro curiosità, la loro capacità di osservazione e la consapevolezza nei confronti dell'ambiente e della cultura dei luoghi. Il progetto si inserisce nel movimento recente che riconosce all'arte e al design un ruolo crescente nei processi educativi, in affiancamento — e non in alternativa — alle forme di istruzione tradizionali. Si colloca quindi nel solco delle pratiche di educazione non formale, che trovano spazio nei musei, nei paesaggi e nei contesti comunitari. trasformandoli in laboratori vivi di conoscenza condivisa.</p>
+    </div>
+    <div>
+      <p class="col-label">KILL HEIDI</p>
+      <p>L'abbandono dei presivi umani non genera biodiversità né natura incontaminata. Non esiste wilderness se non nella narrazione distorta del pittoresco da cartolina. C'è sempre un paesaggio storico su cui innestarsi, costruito nel tempo dall'interazione continua tra uomo e ambiente. Il paradosso delle aree interne é proprio questo: la riduzione della presenza umana non corrisponde automaticamente all'incremento della naturalità. Kidsmeetalps opera dove c'è paradosso.</p>
+      <p class="col-label" style="margin-top: 40px;">PATRIMONIO CULTURALE</p>
+      <p>Il paesaggio culturale è sedimentazione di secoli di presenza antropica: tracce materiali e immateriali che raccontano la nostra storia. Kidsmeetalps suggerisce con leggerezza, ma senza semplificare, l'osservazione degli iconemi paesaggistici, unità elementari di percezione che trascendono la pura visualità. Ogni iconema incarna cultura, storia e trasformazioni di quel luogo. Ripristinare questo sguardo permette di rigenerare il senso di genius loci, spesso smarrito. La salvaguardia di questo patrimonio è pratica partecipativa: coinvolgiamo le comunità depositarie di questi saperi e gli attori locali che lo abitano. Solo così la preservazione diventa generativa, non museificazione, ma riattivazione continua.</p>
+    </div>
+  </section>
+
+  <div id="next" class="scroll-anchor"></div>
+  <hr class="sep" style="margin-top: 200px;">
+
+  <section class="whats-next fi">
+    <div class="wn-top"><h2>WHAT'S<br>NEXT?</h2><div class="wn-location">BRESCIA</div></div>
+    <div class="wn-details">
+      <div class="wn-date">06 LUG 2026<br>10:00 — 18:00<br>Monte Maddalena<br>Sentiero delle pozze</div>
+      <div class="wn-theme"><em>I suoni.</em><br>Un'esplorazione del rapporto metromontano tra la Brescia prealpina e la Brescia urbana attraverso il paesaggio sonoro e le tracce dell'attività umana nel bosco.</div>
+    </div>
+  </section>
+
+  <div id="partners" class="scroll-anchor"></div>
+  <hr class="sep" style="margin-top: 200px;">
+
+  <div class="section-title" style="padding: 0 56px;"><h2>PARTNERS</h2></div>
+  <section class="rete fi"><p>Lasciamo che la nostra rete cresca con fare rizomatico.</p></section>
+
+  <section class="marquee-section">
+    <div class="mq-wrap">
+      <div class="mq-track">
+        <span><img src="loghi/logo_01.png"></span><span><img src="loghi/logo_02.png"></span><span><img src="loghi/logo_03.png"></span><span><img src="loghi/logo_04.png"></span><span><img src="loghi/logo_05.png"></span><span><img src="loghi/logo_06.png"></span><span><img src="loghi/logo_07.png"></span><span><img src="loghi/logo_08.png"></span><span><img src="loghi/logo_09.png"></span><span><img src="loghi/logo_10.png"></span>
+        <span><img src="loghi/logo_01.png"></span><span><img src="loghi/logo_02.png"></span><span><img src="loghi/logo_03.png"></span><span><img src="loghi/logo_04.png"></span><span><img src="loghi/logo_05.png"></span>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 30vh;"></div>
+  <hr class="sep">
+
+  <section class="footer-info fi">
+    <p class="fi-label">IDEAZIONE, DIREZIONE E CURATELA</p>
+    <p class="fi-link"><a href="https://chiarabasilico.studio" target="_blank">chiarabasilico.studio</a></p>
+    <div class="fi-contacts" style="margin-top: 24px;">
+      <p class="fi-link"><a href="mailto:hello@kidsmeetalps.org">hello@kidsmeetalps.org</a></p>
+      <p class="fi-link"><a href="https://instagram.com/kidsmeetalps" target="_blank">@kidsmeetalps</a></p>
+    </div>
+  </section>
+
+  <footer class="footer-bar">
+    <div><a href="index.html">← INDEX</a></div>
+    <div class="fb-right">
+      <a href="#gallery">GALLERY</a>
+      <a href="#project">PROJECT</a>
+      <a href="#next">NEXT</a>
+      <a href="#partners">PARTNERS</a>
+      <a href="hello.html">HELLO</a>
+    </div>
+  </footer>
+</div>
+
+<div class="modal-overlay" id="modal" onclick="closeModal()">
+  <button class="modal-close">CHIUDI ✕</button>
+  <button class="modal-nav nav-prev" onclick="changeImg(-1, event)">←</button>
+  <button class="modal-nav nav-next" onclick="changeImg(1, event)">→</button>
+  
+  <div class="modal-body" onclick="closeModal()">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <div id="modal-img"></div>
+      <div class="modal-content">
+        <div class="modal-grid">
+          <div class="meta-left">
+            <div class="meta-block">
+              <span class="meta-label">TITOLO</span>
+              <span class="meta-value" id="m-title"></span>
+            </div>
+            <div class="meta-block">
+              <span class="meta-label">EDIZIONE</span>
+              <span class="meta-value" id="m-edition"></span>
+            </div>
+          </div>
+          <div class="meta-right">
+            <div class="meta-block">
+              <span class="meta-label">ESECUZIONE</span>
+              <span class="meta-value" id="m-execution"></span>
+            </div>
+          </div>
+        </div>
+        <hr class="modal-sep">
+        <div id="m-desc" class="modal-description"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Animazioni Scroll
+  const obs = new IntersectionObserver(es => {
+    es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); });
+  }, { threshold: 0.05 });
+  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
+
+  // Logica Modale e Navigazione Immagini
+  const modal = document.getElementById('modal');
+  const allItems = Array.from(document.querySelectorAll('.img-item'));
+  let currentIndex = 0;
+
+  function openModal(el) {
+    currentIndex = allItems.indexOf(el);
+    updateModalContent();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function updateModalContent() {
+    const el = allItems[currentIndex];
+    const img = el.querySelector('img');
+    
+    document.getElementById('modal-img').innerHTML = `<img src="${img.src}">`;
+    document.getElementById('m-title').innerText = el.getAttribute('data-title') || '';
+    document.getElementById('m-edition').innerText = el.getAttribute('data-edition') || '';
+    document.getElementById('m-execution').innerText = el.getAttribute('data-execution') || '';
+    document.getElementById('m-desc').innerText = el.getAttribute('data-desc') || '';
+  }
+
+  function changeImg(dir, e) {
+    if (e) e.stopPropagation();
+    currentIndex = (currentIndex + dir + allItems.length) % allItems.length;
+    updateModalContent();
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Tasti Tastiera
+  window.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'ArrowRight') changeImg(1);
+    if (e.key === 'ArrowLeft') changeImg(-1);
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
