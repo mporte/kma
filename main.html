@@ -3,7 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kidsmeetalps — Gesto di cura, atto di custodia</title>
+
+  <title>Kidsmeetalps — Gallery, Progetto e Prossimi Appuntamenti</title>
+  <meta name="description" content="Kidsmeetalps: progetto arts-based di risignificazione dei luoghi alpini. Arte, design e partecipazione per reinterpretare il paesaggio montano.">
+  <link rel="canonical" href="https://kidsmeetalps.com/main.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+
+  <!-- Open Graph — WhatsApp, Telegram, Facebook, LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kidsmeetalps.com/main.html">
+  <meta property="og:title" content="Kidsmeetalps — Gallery, Progetto e Prossimi Appuntamenti">
+  <meta property="og:description" content="Kidsmeetalps: progetto arts-based di risignificazione dei luoghi alpini. Arte, design e partecipazione per reinterpretare il paesaggio montano.">
+  <meta property="og:image" content="https://kidsmeetalps.com/pic_preview.png">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Kidsmeetalps">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kidsmeetalps — Gallery, Progetto e Prossimi Appuntamenti">
+  <meta name="twitter:description" content="Kidsmeetalps: progetto arts-based di risignificazione dei luoghi alpini. Arte, design e partecipazione per reinterpretare il paesaggio montano.">
+  <meta name="twitter:image" content="https://kidsmeetalps.com/pic_preview.png">
+
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -99,7 +122,7 @@
     .rete p { font-family: var(--body); font-size: 14px; line-height: 1.6; max-width: 500px; }
 
     /* ── MARQUEE ── */
-    .marquee-section { padding: 0 56px 40px; overflow: hidden; margin-top: 80px; } }
+    .marquee-section { padding: 0 56px 40px; overflow: hidden; margin-top: 80px; }
     .mq-wrap { overflow: hidden; position: relative; }
     .mq-track { display: flex; gap: 48px; align-items: center; animation: mq 30s linear infinite; width: max-content; }
     .mq-track img { height: 48px; width: 150px; object-fit: contain; }
@@ -114,19 +137,15 @@
     .footer-bar .fb-right { display: flex; }
 
     /* ── MODALE ── */
-    .modal-overlay { 
-      position: fixed; inset: 0; z-index: 10000; background: #fff; 
-      overflow-y: auto; opacity: 0; 
-      visibility: hidden; 
-      pointer-events: none; transition: opacity .3s, visibility .3s; 
-      display: flex; justify-content: center; align-items: center; 
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 10000; background: #fff;
+      overflow-y: auto; opacity: 0;
+      visibility: hidden;
+      pointer-events: none; transition: opacity .3s, visibility .3s;
+      display: flex; justify-content: center; align-items: center;
     }
-    .modal-overlay.open { 
-      opacity: 1; visibility: visible; pointer-events: auto; 
-    }
+    .modal-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; }
     .modal-close { position: fixed; top: 28px; right: 56px; font-family: var(--body); font-size: 11px; cursor: pointer; background: none; border: none; z-index: 10001; }
-    
-    /* FRECCE NAVIGAZIONE MODALE */
     .modal-nav {
       position: fixed; top: 50%; transform: translateY(-50%);
       font-family: var(--body); font-size: 24px; cursor: pointer;
@@ -136,31 +155,18 @@
     .modal-nav:hover { color: var(--accent); }
     .nav-prev { left: 20px; }
     .nav-next { right: 20px; }
-
-    .modal-body { 
-      padding: 100px 56px; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      width: 100%;
-      min-height: 100%;
+    .modal-body {
+      padding: 100px 56px;
+      display: flex; flex-direction: column; align-items: center;
+      width: 100%; min-height: 100%;
     }
-    
-    .modal-container { 
-      width: min-content; 
-      max-width: 90vw; 
-      pointer-events: auto; 
-    }
-    
+    .modal-container { width: min-content; max-width: 90vw; pointer-events: auto; }
     #modal-img img { display: block; max-width: 90vw; max-height: 65vh; width: auto; height: auto; }
-    
     .modal-content { margin-top: 30px; color: #000; font-family: var(--body); text-align: left; width: 100%; }
-    
     .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .meta-block { margin-bottom: 16px; font-size: 14px; line-height: 1.2; text-transform: uppercase; }
     .meta-label { display: block; margin-bottom: 2px; }
     .meta-value { display: block; }
-
     .modal-sep { border: none; border-top: 8px solid #000; margin: 20px 0; width: 100%; }
     .modal-description { font-size: 14px; line-height: 1.6; }
 
@@ -240,7 +246,7 @@
 
   <hr class="sep" style="margin-top: 200px;">
 
-<section class="grid-full fi">
+  <section class="grid-full fi">
     <div class="grid-3x2">
       <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="SEGNO URBANO" data-edition="2024" data-execution="DIGITAL" data-desc="Interferenze tra ambiente urbano e prealpino."><div class="ph-box" style="width:380px;height:320px;"><img src="pic/pic_07.jpg"></div></div>
       <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="MATERIA ALPINI" data-edition="2024" data-execution="DIGITAL" data-desc="Dettaglio materico delle superfici rocciose mappate."><div class="ph-box" style="width:280px;height:370px;"><img src="pic/pic_08.jpg"></div></div>
@@ -315,7 +321,6 @@
         <span style="margin-right: 20px;"><img src="loghi/logo_cs1bc.png" style="height: 48px; width: auto;"></span>
         <span style="margin-right: 20px;"><img src="loghi/logo_mangiafiori.png" style="height: 78px; width: auto;"></span>
         <span style="margin-right: 20px;"><img src="loghi/logo_altramontagna.png" style="height: 98px; width: auto;"></span>
-
         <span style="margin-right: 20px;"><img src="loghi/logo_unibz.png" style="height: 38px; width: auto;"></span>
         <span style="margin-right: 20px;"><img src="loghi/logo_lasap.png" style="height: 48px; width: auto;"></span>
         <span style="margin-right: 20px;"><img src="loghi/logo_ubi.png" style="height: 48px; width: auto;"></span>
@@ -337,7 +342,6 @@
         <span style="margin-right: 20px;"><img src="loghi/logo_cs1bc.png" style="height: 48px; width: auto;"></span>
         <span style="margin-right: 20px;"><img src="loghi/logo_mangiafiori.png" style="height: 78px; width: auto;"></span>
         <span style="margin-right: 20px;"><img src="loghi/logo_altramontagna.png" style="height: 98px; width: auto;"></span>
-
       </div>
     </div>
   </section>
@@ -370,7 +374,6 @@
   <button class="modal-close">CHIUDI ✕</button>
   <button class="modal-nav nav-prev" onclick="changeImg(-1, event)">←</button>
   <button class="modal-nav nav-next" onclick="changeImg(1, event)">→</button>
-  
   <div class="modal-body" onclick="closeModal()">
     <div class="modal-container" onclick="event.stopPropagation()">
       <div id="modal-img"></div>
@@ -401,13 +404,11 @@
 </div>
 
 <script>
-  // Animazioni Scroll
   const obs = new IntersectionObserver(es => {
     es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); });
   }, { threshold: 0.05 });
   document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 
-  // Logica Modale e Navigazione Immagini
   const modal = document.getElementById('modal');
   const allItems = Array.from(document.querySelectorAll('.img-item'));
   let currentIndex = 0;
@@ -422,7 +423,6 @@
   function updateModalContent() {
     const el = allItems[currentIndex];
     const img = el.querySelector('img');
-    
     document.getElementById('modal-img').innerHTML = `<img src="${img.src}">`;
     document.getElementById('m-title').innerText = el.getAttribute('data-title') || '';
     document.getElementById('m-edition').innerText = el.getAttribute('data-edition') || '';
@@ -441,7 +441,6 @@
     document.body.style.overflow = '';
   }
 
-  // Tasti Tastiera
   window.addEventListener('keydown', (e) => {
     if (!modal.classList.contains('open')) return;
     if (e.key === 'ArrowRight') changeImg(1);
