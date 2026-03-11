@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 
-  <!-- Open Graph — WhatsApp, Telegram, Facebook, LinkedIn -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kidsmeetalps.com/hello.html">
   <meta property="og:title" content="Kidsmeetalps — Hello, contatti e collaborazioni">
@@ -53,6 +53,7 @@
       flex-direction: column;
     }
 
+    /* ── NAV ── */
     .nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 40px 56px;
@@ -65,6 +66,37 @@
     .nav-right { display: flex; gap: 20px; }
     .nav a:hover { color: var(--accent); }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--fg); transition: all .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE MENU ── */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: #fff; z-index: 999;
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--body); font-size: 18px;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--fg); transition: color .2s;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ── MAIN ── */
     .main {
       flex: 1;
       padding: 80px 56px;
@@ -83,6 +115,7 @@
     .main-left .info a { border-bottom: 1px solid var(--fg); transition: border-color .2s; }
     .main-left .info a:hover { border-color: var(--accent); color: var(--accent); }
 
+    /* ── FORM ── */
     .contact-form { padding-top: 20px; }
     .field { margin-bottom: 28px; }
     .field label {
@@ -108,6 +141,7 @@
     }
     .submit-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+    /* ── FOOTER ── */
     .footer-bar {
       padding: 28px 56px;
       display: flex; justify-content: space-between; align-items: center;
@@ -121,11 +155,15 @@
     .footer-bar .fb-right { display: flex; gap: 20px; }
     .footer-bar a:hover { color: var(--accent); }
 
-    @media(max-width:900px) {
-      .nav-right, .footer-bar .fb-right { display: none; }
+    /* ── RESPONSIVE MOBILE ── */
+    @media(max-width: 900px) {
+      .nav { padding: 24px; }
+      .nav-right { display: none; }
+      .hamburger { display: flex; }
+      .footer-bar { padding: 24px; }
+      .footer-bar .fb-right { display: none; }
       .main { grid-template-columns: 1fr; gap: 48px; padding: 48px 24px; }
       .main-left h1 { font-size: 36px; }
-      .nav, .footer-bar { padding: 24px; }
     }
   </style>
 </head>
@@ -140,7 +178,20 @@
         <a href="main.html#partners">PARTNERS</a>
         <a href="hello.html" style="color:var(--accent)">HELLO</a>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="main.html#gallery" onclick="closeMenu()">GALLERY</a>
+      <a href="main.html#project" onclick="closeMenu()">PROJECT</a>
+      <a href="main.html#next" onclick="closeMenu()">NEXT</a>
+      <a href="main.html#partners" onclick="closeMenu()">PARTNERS</a>
+      <a href="hello.html" onclick="closeMenu()" style="color:var(--accent)">HELLO</a>
+      <a href="index.html" onclick="closeMenu()">← INDEX</a>
+    </div>
 
     <div class="main">
       <div class="main-left">
@@ -148,7 +199,7 @@
         <div class="info">
           <p>Per collaborazioni, proposte, domande o semplicemente per dirci Hello!</p>
           <p>
-            <a href="mailto:hello@kidsmeetalps.com">hello@kidsmeetalps.com</a><br>
+            <a href="mailto:hello@kidsmeetalps.org">hello@kidsmeetalps.org</a><br>
             <a href="https://instagram.com/kidsmeetalps" target="_blank" rel="noopener">@kidsmeetalps</a><br><br><br>
           </p>
           <p>
@@ -192,7 +243,22 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
 </body>
 </html>
-
-
