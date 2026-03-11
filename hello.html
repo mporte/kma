@@ -3,7 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kidsmeetalps — Hello</title>
+
+  <title>Kidsmeetalps — Hello, contatti e collaborazioni</title>
+  <meta name="description" content="Contatta Kidsmeetalps per collaborazioni, proposte o domande. Ideazione e curatela: chiarabasilico.studio">
+  <link rel="canonical" href="https://kidsmeetalps.com/hello.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+
+  <!-- Open Graph — WhatsApp, Telegram, Facebook, LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kidsmeetalps.com/hello.html">
+  <meta property="og:title" content="Kidsmeetalps — Hello, contatti e collaborazioni">
+  <meta property="og:description" content="Contatta Kidsmeetalps per collaborazioni, proposte o domande. Ideazione e curatela: chiarabasilico.studio">
+  <meta property="og:image" content="https://kidsmeetalps.com/pic_preview.png">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Kidsmeetalps">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kidsmeetalps — Hello, contatti e collaborazioni">
+  <meta name="twitter:description" content="Contatta Kidsmeetalps per collaborazioni, proposte o domande. Ideazione e curatela: chiarabasilico.studio">
+  <meta name="twitter:image" content="https://kidsmeetalps.com/pic_preview.png">
+
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -22,16 +45,14 @@
     ::selection { background: var(--accent); color: #fff; }
     a { color: inherit; text-decoration: none; }
 
-    /* ── CONTAINER ── */
-    .page { 
-      max-width: 1440px; 
-      margin: 0 auto; 
+    .page {
+      max-width: 1440px;
+      margin: 0 auto;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* ── NAV ── */
     .nav {
       display: flex; justify-content: space-between; align-items: center;
       padding: 40px 56px;
@@ -44,7 +65,6 @@
     .nav-right { display: flex; gap: 20px; }
     .nav a:hover { color: var(--accent); }
 
-    /* ── MAIN ── */
     .main {
       flex: 1;
       padding: 80px 56px;
@@ -63,7 +83,6 @@
     .main-left .info a { border-bottom: 1px solid var(--fg); transition: border-color .2s; }
     .main-left .info a:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── FORM ── */
     .contact-form { padding-top: 20px; }
     .field { margin-bottom: 28px; }
     .field label {
@@ -89,9 +108,8 @@
     }
     .submit-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── FOOTER ── */
     .footer-bar {
-      padding: 28px 56px; 
+      padding: 28px 56px;
       display: flex; justify-content: space-between; align-items: center;
       margin-top: 40px;
     }
@@ -103,7 +121,6 @@
     .footer-bar .fb-right { display: flex; gap: 20px; }
     .footer-bar a:hover { color: var(--accent); }
 
-    /* ── RESPONSIVE ── */
     @media(max-width:900px) {
       .nav-right, .footer-bar .fb-right { display: none; }
       .main { grid-template-columns: 1fr; gap: 48px; padding: 48px 24px; }
@@ -113,7 +130,6 @@
   </style>
 </head>
 <body>
-
   <div class="page">
     <nav class="nav">
       <div><a href="index.html">← INDEX</a></div>
@@ -176,6 +192,5 @@
       </div>
     </footer>
   </div>
-
 </body>
 </html>
