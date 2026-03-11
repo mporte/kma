@@ -99,16 +99,16 @@
     .rete p { font-family: var(--body); font-size: 14px; line-height: 1.6; max-width: 500px; }
 
     /* ── MARQUEE ── */
-    .marquee-section { padding: 0 56px 40px; overflow: hidden; }
+    .marquee-section { padding: 0 56px 40px; overflow: hidden; margin-top: 80px; } }
     .mq-wrap { overflow: hidden; position: relative; }
     .mq-track { display: flex; gap: 48px; align-items: center; animation: mq 30s linear infinite; width: max-content; }
-    .mq-track img { height: 32px; width: 100px; object-fit: contain; }
+    .mq-track img { height: 48px; width: 150px; object-fit: contain; }
     @keyframes mq { to { transform: translateX(-50%); } }
 
     /* ── FOOTER ── */
     .footer-info { padding: 60px 56px; font-family: var(--body); }
     .footer-info .fi-label { font-size: 14px; text-transform: uppercase; margin-bottom: 16px; }
-    .footer-info .fi-link { font-size: 14px; line-height: 1.6; }
+    .footer-info .fi-link a { font-size: 14px; line-height: 1.6; text-decoration: underline; }
     .footer-bar { padding: 28px 56px; display: flex; justify-content: space-between; align-items: center; font-family: var(--body); position: relative; z-index: 1000; }
     .footer-bar a { font-size: 11px; text-transform: uppercase; margin-left: 20px; }
     .footer-bar .fb-right { display: flex; }
@@ -212,7 +212,7 @@
     </div>
     <div class="col-right">
       <div class="img-row">
-        <div class="img-item" style="width:313px;height:204px;" onclick="openModal(this)" data-title="DISPOSITIVO 01" data-edition="EDIZIONE 2024" data-execution="STAMPA FINE ART" data-desc="Osservazione dei segni antropici nel paesaggio alpino durante la prima fase di mappatura territoriale.">
+        <div class="img-item" style="width:370px;height:204px;" onclick="openModal(this)" data-title="DISPOSITIVO 01" data-edition="EDIZIONE 2024" data-execution="STAMPA FINE ART" data-desc="Osservazione dei segni antropici nel paesaggio alpino durante la prima fase di mappatura territoriale.">
           <div class="ph-box"><img src="pic/pic_01.jpg"></div>
         </div>
         <div class="img-item" style="width:201px;height:304px;" onclick="openModal(this)" data-title="DETTAGLIO BOSCO" data-edition="EDIZIONE 2023" data-execution="INSTALLAZIONE" data-desc="La sedimentazione storica come traccia visiva nel sottobosco: iconemi di un'economia montana passata.">
@@ -228,7 +228,7 @@
         </div>
       </div>
       <div class="img-row">
-        <div class="img-item" style="width:347px;height:149px;" onclick="openModal(this)" data-title="ARCHIVIO ICONEMI" data-edition="EDIZIONE 2023" data-execution="RACCOLTA MATERIALI" data-desc="Campionatura di iconemi paesaggistici locali: frammenti di un'identità in continua trasformazione.">
+        <div class="img-item" style="width:347px;height:349px;" onclick="openModal(this)" data-title="ARCHIVIO ICONEMI" data-edition="EDIZIONE 2023" data-execution="RACCOLTA MATERIALI" data-desc="Campionatura di iconemi paesaggistici locali: frammenti di un'identità in continua trasformazione.">
           <div class="ph-box"><img src="pic/pic_05.jpg"></div>
         </div>
         <div class="img-item" style="width:224px;height:328px;" onclick="openModal(this)" data-title="INCONTRO" data-edition="EDIZIONE 2024" data-execution="WORKSHOP" data-desc="Dialogo tra generazioni diverse sul concetto di custodia e cura del bene comune montano.">
@@ -240,14 +240,14 @@
 
   <hr class="sep" style="margin-top: 200px;">
 
-  <section class="grid-full fi">
+<section class="grid-full fi">
     <div class="grid-3x2">
-      <div class="img-item" onclick="openModal(this)" data-title="SEGNO URBANO" data-edition="2024" data-execution="DIGITAL" data-desc="Interferenze tra ambiente urbano e prealpino."><div class="ph-box" style="aspect-ratio:347/192;"><img src="pic/pic_07.jpg"></div></div>
-      <div class="img-item" onclick="openModal(this)" data-title="MATERIA ALPINI" data-edition="2024" data-execution="DIGITAL" data-desc="Dettaglio materico delle superfici rocciose mappate."><div class="ph-box" style="aspect-ratio:247/328;"><img src="pic/pic_08.jpg"></div></div>
-      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 09" data-edition="2024" data-execution="DIGITAL" data-desc="Esplorazione visiva dei confini boschivi."><div class="ph-box" style="aspect-ratio:347/234;"><img src="pic/pic_09.jpg"></div></div>
-      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 10" data-edition="2024" data-execution="DIGITAL" data-desc="Documentazione fotografica del sentiero delle pozze."><div class="ph-box" style="aspect-ratio:347/192;"><img src="pic/pic_10.jpg"></div></div>
-      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 11" data-edition="2024" data-execution="DIGITAL" data-desc="Studio sulle ombre proiettate dagli iconemi storici."><div class="ph-box" style="aspect-ratio:180/328;"><img src="pic/pic_11.jpg"></div></div>
-      <div class="img-item" onclick="openModal(this)" data-title="TRACCIA 12" data-edition="2024" data-execution="DIGITAL" data-desc="Restituzione grafica dell'attività laboratoriale."><div class="ph-box" style="aspect-ratio:347/192;"><img src="pic/pic_12.jpg"></div></div>
+      <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="SEGNO URBANO" data-edition="2024" data-execution="DIGITAL" data-desc="Interferenze tra ambiente urbano e prealpino."><div class="ph-box" style="width:380px;height:320px;"><img src="pic/pic_07.jpg"></div></div>
+      <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="MATERIA ALPINI" data-edition="2024" data-execution="DIGITAL" data-desc="Dettaglio materico delle superfici rocciose mappate."><div class="ph-box" style="width:280px;height:370px;"><img src="pic/pic_08.jpg"></div></div>
+      <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="TRACCIA 09" data-edition="2024" data-execution="DIGITAL" data-desc="Esplorazione visiva dei confini boschivi."><div class="ph-box" style="width:380px;height:260px;"><img src="pic/pic_09.jpg"></div></div>
+      <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="TRACCIA 10" data-edition="2024" data-execution="DIGITAL" data-desc="Documentazione fotografica del sentiero delle pozze."><div class="ph-box" style="width:380px;height:320px;"><img src="pic/pic_10.jpg"></div></div>
+      <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="TRACCIA 11" data-edition="2024" data-execution="DIGITAL" data-desc="Studio sulle ombre proiettate dagli iconemi storici."><div class="ph-box" style="width:310px;height:370px;"><img src="pic/pic_11.jpg"></div></div>
+      <div class="img-item" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;" onclick="openModal(this)" data-title="TRACCIA 12" data-edition="2024" data-execution="DIGITAL" data-desc="Restituzione grafica dell'attività laboratoriale."><div class="ph-box" style="width:350px;height:280px;"><img src="pic/pic_12.jpg"></div></div>
     </div>
   </section>
 
@@ -279,7 +279,7 @@
   <section class="whats-next fi">
     <div class="wn-top"><h2>WHAT'S<br>NEXT?</h2><div class="wn-location">BRESCIA</div></div>
     <div class="wn-details">
-      <div class="wn-date">06 LUG 2026<br>10:00 — 18:00<br>Monte Maddalena<br>Sentiero delle pozze</div>
+      <div class="wn-date">06 LUG 2026<br>10:00 — 16:00<br>Monte Maddalena<br>Sentiero delle pozze</div>
       <div class="wn-theme"><em>I suoni.</em><br>Un'esplorazione del rapporto metromontano tra la Brescia prealpina e la Brescia urbana attraverso il paesaggio sonoro e le tracce dell'attività umana nel bosco.</div>
     </div>
   </section>
@@ -288,13 +288,56 @@
   <hr class="sep" style="margin-top: 200px;">
 
   <div class="section-title" style="padding: 0 56px;"><h2>PARTNERS</h2></div>
-  <section class="rete fi"><p>Lasciamo che la nostra rete cresca con fare rizomatico.</p></section>
+  <section class="rete fi"><p>Lasciamo che la nostra rete cresca con fare rizomatico.<br>
+  Nel nostro percorso abbiamo collaborato e collaboriamo, oppure ci siamo semplicemente raccontati a:</p></section>
 
   <section class="marquee-section">
     <div class="mq-wrap">
       <div class="mq-track">
-        <span><img src="loghi/logo_01.png"></span><span><img src="loghi/logo_02.png"></span><span><img src="loghi/logo_03.png"></span><span><img src="loghi/logo_04.png"></span><span><img src="loghi/logo_05.png"></span><span><img src="loghi/logo_06.png"></span><span><img src="loghi/logo_07.png"></span><span><img src="loghi/logo_08.png"></span><span><img src="loghi/logo_09.png"></span><span><img src="loghi/logo_10.png"></span>
-        <span><img src="loghi/logo_01.png"></span><span><img src="loghi/logo_02.png"></span><span><img src="loghi/logo_03.png"></span><span><img src="loghi/logo_04.png"></span><span><img src="loghi/logo_05.png"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_unibz.png" style="height: 38px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_lasap.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_ubi.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_lipu.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_orobie.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_franz.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_fdm.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_italian.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_typo.png" style="height: 58px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_sBK.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_stapelstein.png" style="height: 68px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_stockmar.png" style="height: 38px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_grapat.png" style="height: 58px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_territorio.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_parco.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_shift.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_vBK.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_daelli.png" style="height: 88px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_cs1bc.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_mangiafiori.png" style="height: 78px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_altramontagna.png" style="height: 98px; width: auto;"></span>
+
+        <span style="margin-right: 20px;"><img src="loghi/logo_unibz.png" style="height: 38px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_lasap.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_ubi.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_lipu.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_orobie.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_franz.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_fdm.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_italian.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_typo.png" style="height: 58px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_sBK.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_stapelstein.png" style="height: 68px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_stockmar.png" style="height: 38px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_grapat.png" style="height: 58px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_territorio.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_parco.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_shift.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_vBK.png" style="height: 28px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_daelli.png" style="height: 88px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_cs1bc.png" style="height: 48px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_mangiafiori.png" style="height: 78px; width: auto;"></span>
+        <span style="margin-right: 20px;"><img src="loghi/logo_altramontagna.png" style="height: 98px; width: auto;"></span>
+
       </div>
     </div>
   </section>
