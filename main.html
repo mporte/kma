@@ -661,7 +661,7 @@
     <p class="fi-label">IDEAZIONE, DIREZIONE E CURATELA</p>
     <p class="fi-link"><a href="https://chiarabasilico.studio" target="_blank">chiarabasilico.studio</a></p>
     <div class="fi-contacts" style="margin-top: 24px;">
-      <p class="fi-link"><a href="/cdn-cgi/l/email-protection#731b161f1f1c33181a17001e161607121f03005d101c1e"><span class="__cf_email__" data-cfemail="c0a8a5acacaf80aba9a4b3ada5a5b4a1acb0b3eea3afad">[email&#160;protected]</span></a></p>
+      <p class="fi-link"><a href="mailto:hello@kidsmeetalps.com">hello@kidsmeetalps.com</a></p>
       <p class="fi-link"><a href="https://instagram.com/kidsmeetalps" target="_blank">@kidsmeetalps</a></p>
     </div>
   </section>
@@ -715,7 +715,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Scroll animations
   const obs = new IntersectionObserver(es => {
     es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); });
@@ -768,15 +768,15 @@
     if (curator) {
       curatorBlock.style.display = '';
       const curatorUrl2 = (el.getAttribute('data-curator-url2') || '').trim();
-       if (curatorUrl && curatorUrl2) {
-       const names = curator.split(',').map(n => n.trim());
-       curatorValue.innerHTML = `<a href="${curatorUrl}" target="_blank">${names[0]}</a> e <a href="${curatorUrl2}" target="_blank">${names[1]}</a>`;
+      if (curatorUrl && curatorUrl2) {
+        const names = curator.split(',').map(n => n.trim());
+        curatorValue.innerHTML = `<a href="${curatorUrl}" target="_blank">${names[0]}</a> e <a href="${curatorUrl2}" target="_blank">${names[1]}</a>`;
       } else if (curatorUrl) {
         curatorValue.innerHTML = `<a href="${curatorUrl}" target="_blank">${curator}</a>`;
       } else {
-       curatorValue.innerText = curator;
+        curatorValue.innerText = curator;
       }
-      } else {
+    } else {
       curatorBlock.style.display = 'none';
     }
   }
@@ -792,4 +792,13 @@
     document.body.style.overflow = '';
   }
 
-  window.addEve
+  window.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'ArrowRight') changeImg(1);
+    if (e.key === 'ArrowLeft') changeImg(-1);
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
