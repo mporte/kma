@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Kidsmeetalps</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --fg: #111;
+      --accent: #e8336d;
+      --head: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      --body: 'Courier New', Courier, monospace;
+    }
+
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--body); background: var(--bg); color: var(--fg);
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 40px 24px; overflow: hidden; position: relative;
+    }
+    ::selection { background: var(--accent); color: #fff; }
+    a { color: inherit; }
+
+    /* ── Clouds ── */
+    .cloud {
+      position: fixed; z-index: 0;
+      font-size: 40px; opacity: 0.12;
+      animation: drift linear infinite;
+    }
+    .c1  { top: 3%;  font-size: 65px; opacity: 0.07; animation-duration: 50s; }
+    .c2  { top: 11%; font-size: 35px; animation-duration: 65s; animation-delay: -10s; }
+    .c3  { top: 7%;  font-size: 48px; opacity: 0.10; animation-duration: 55s; animation-delay: -30s; }
+    .c4  { top: 20%; font-size: 30px; animation-duration: 70s; animation-delay: -45s; }
+    .c5  { top: 16%; font-size: 55px; opacity: 0.07; animation-duration: 48s; animation-delay: -15s; }
+    .c6  { top: 26%; font-size: 26px; animation-duration: 75s; animation-delay: -55s; }
+    .c7  { top: 2%;  font-size: 42px; opacity: 0.09; animation-duration: 58s; animation-delay: -25s; }
+    .c8  { top: 30%; font-size: 38px; opacity: 0.06; animation-duration: 62s; animation-delay: -40s; }
+    .c9  { top: 10%; font-size: 52px; opacity: 0.08; animation-duration: 52s; animation-delay: -8s; }
+    .c10 { top: 23%; font-size: 28px; opacity: 0.11; animation-duration: 68s; animation-delay: -50s; }
+    .c11 { top: 6%;  font-size: 58px; opacity: 0.06; animation-duration: 72s; animation-delay: -5s; }
+    .c12 { top: 18%; font-size: 32px; opacity: 0.10; animation-duration: 44s; animation-delay: -22s; }
+    .c13 { top: 28%; font-size: 45px; opacity: 0.07; animation-duration: 66s; animation-delay: -38s; }
+    .c14 { top: 1%;  font-size: 36px; opacity: 0.09; animation-duration: 56s; animation-delay: -48s; }
+    .c15 { top: 14%; font-size: 50px; opacity: 0.06; animation-duration: 60s; animation-delay: -18s; }
+
+    @keyframes drift {
+      from { left: -120px; }
+      to   { left: calc(100vw + 120px); }
+    }
+
+    /* ── Hiker: walks left→right facing right, then right→left facing left ── */
+    .hiker {
+      position: fixed; bottom: 20vh; z-index: 1;
+      font-size: 32px;
+      animation: walk 22s linear infinite;
+    }
+    @keyframes walk {
+      0%   { left: -50px; transform: scaleX(-1); }
+      49%  { left: calc(100vw + 50px); transform: scaleX(-1); }
+      50%  { left: calc(100vw + 50px); transform: scaleX(1); }
+      99%  { left: -50px; transform: scaleX(1); }
+      100% { left: -50px; transform: scaleX(-1); }
+    }
+
+    /* ── Goat: walks right→left facing left, then left→right facing right ── */
+    .goat {
+      position: fixed; bottom: 10vh; z-index: 1;
+      font-size: 32px;
+      animation: goatwalk 22s linear infinite;
+    }
+    @keyframes goatwalk {
+      0%   { right: -50px; transform: scaleX(1); }
+      49%  { right: calc(100vw + 50px); transform: scaleX(1); }
+      50%  { right: calc(100vw + 50px); transform: scaleX(-1); }
+      99%  { right: -50px; transform: scaleX(-1); }
+      100% { right: -50px; transform: scaleX(1); }
+    }
+
+    /* ── Bump effect ── */
+    .bump { animation: bumpshake 0.4s ease; }
+    @keyframes bumpshake {
+      0%, 100% { transform: translateY(0); }
+      25%  { transform: translateY(-8px) rotate(-5deg); }
+      50%  { transform: translateY(0) rotate(3deg); }
+      75%  { transform: translateY(-4px) rotate(-2deg); }
+    }
+
+    /* ── Content ── */
+    .content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 560px;
+    }
+
+    .four-oh-four {
+      font-family: var(--head); font-weight: 700;
+      font-size: clamp(100px, 20vw, 200px);
+      line-height: 1; letter-spacing: -.04em;
+      color: var(--fg);
+      position: relative;
+    }
+    .four-oh-four span {
+      display: inline-block;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .four-oh-four span:nth-child(1) { animation-delay: 0s; }
+    .four-oh-four span:nth-child(2) { animation-delay: 0.15s; }
+    .four-oh-four span:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      30%      { transform: translateY(-12px); }
+      50%      { transform: translateY(0); }
+    }
+
+    .subtitle {
+      font-family: var(--body); font-size: 14px;
+      line-height: 1.6; margin-top: 24px;
+    }
+
+    /* ── Easter egg ── */
+    .egg-trigger { cursor: pointer; position: relative; }
+    .egg-trigger:hover { color: var(--accent); }
+    .egg-msg {
+      position: absolute; top: 100%; left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--body); font-size: 12px;
+      white-space: nowrap; color: var(--accent);
+      opacity: 0; transition: opacity .4s;
+      pointer-events: none; padding-top: 8px;
+    }
+    .egg-msg.show { opacity: 1; }
+
+    .back-link {
+      display: inline-block; margin-top: 40px;
+      font-family: var(--body); font-size: 14px;
+      text-decoration: underline;
+      transition: color .2s;
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* ── Stars ── */
+    .stars {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0; pointer-events: none;
+    }
+    .star {
+      position: absolute; width: 2px; height: 2px;
+      background: var(--fg); border-radius: 50%;
+      opacity: 0; animation: twinkle 4s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; }
+      50%      { opacity: 0.12; }
+    }
+
+    @media(max-width: 600px) {
+      .goat, .hiker { font-size: 26px; bottom: 8vh; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Stars -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Clouds -->
+  <div class="cloud c1">☁</div>
+  <div class="cloud c2">☁</div>
+  <div class="cloud c3">☁</div>
+  <div class="cloud c4">☁</div>
+  <div class="cloud c5">☁</div>
+  <div class="cloud c6">☁</div>
+  <div class="cloud c7">☁</div>
+  <div class="cloud c8">☁</div>
+  <div class="cloud c9">☁</div>
+  <div class="cloud c10">☁</div>
+  <div class="cloud c11">☁</div>
+  <div class="cloud c12">☁</div>
+  <div class="cloud c13">☁</div>
+  <div class="cloud c14">☁</div>
+  <div class="cloud c15">☁</div>
+
+  <!-- Hiker -->
+  <div class="hiker" id="hiker">🚶</div>
+
+  <!-- Goat -->
+  <div class="goat" id="goat">🐐</div>
+
+  <!-- Content -->
+  <div class="content">
+    <div class="four-oh-four">
+      <span>4</span><span class="egg-trigger" id="egg" onclick="eggClick()">0</span><span>4</span>
+      <div class="egg-msg" id="egg-msg">...forse la capra ha mangiato la pagina 🐐</div>
+    </div>
+    <p class="subtitle">Hai preso un sentiero che non esiste.<br>Capita spesso in montagna.</p>
+    <a href="main.html" class="back-link">← torna sul sentiero</a>
+  </div>
+
+  <script>
+    // Easter egg
+    let eggClicks = 0;
+    function eggClick() {
+      eggClicks++;
+      const msg = document.getElementById('egg-msg');
+      if (eggClicks >= 2) {
+        msg.classList.add('show');
+        setTimeout(() => msg.classList.remove('show'), 3000);
+        eggClicks = 0;
+      }
+    }
+
+    // Random stars
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 20; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 50 + '%';
+      s.style.animationDelay = (Math.random() * 4) + 's';
+      s.style.animationDuration = (3 + Math.random() * 3) + 's';
+      starsContainer.appendChild(s);
+    }
+
+    // Bump detection
+    const hiker = document.getElementById('hiker');
+    const goat = document.getElementById('goat');
+    let canBump = true;
+
+    function checkBump() {
+      const hRect = hiker.getBoundingClientRect();
+      const gRect = goat.getBoundingClientRect();
+      const overlap = !(hRect.right < gRect.left || hRect.left > gRect.right);
+
+      if (overlap && canBump) {
+        canBump = false;
+        hiker.classList.add('bump');
+        goat.classList.add('bump');
+        setTimeout(() => {
+          hiker.classList.remove('bump');
+          goat.classList.remove('bump');
+        }, 400);
+        setTimeout(() => { canBump = true; }, 3000);
+      }
+      requestAnimationFrame(checkBump);
+    }
+    requestAnimationFrame(checkBump);
+  </script>
+
+</body>
+</html>
