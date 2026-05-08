@@ -95,6 +95,13 @@
 
     /* ── HERO ── */
     .hero { padding: 120px 56px 40px; }
+    .hero-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .hero-text { flex: 1; min-width: 0; }
     .hero h1 {
       font-family: var(--head); font-weight: 700;
       font-size: 58px; line-height: 1.2; letter-spacing: -.02em;
@@ -103,6 +110,42 @@
       margin-top: 50px;
       font-family: var(--body); font-size: 14px;
       line-height: 1.6; max-width: 420px;
+    }
+
+    /* ── HERO EVENT TEASER ── */
+    .hero-event {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+    .hero-event-info {
+      text-align: right;
+      font-family: var(--body);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .hero-event-date {
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .hero-event-link {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      font-weight: 700;
+      text-decoration: underline;
+      transition: color .2s;
+    }
+    .hero-event-link:hover { color: var(--accent); }
+    .hero-event-img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
     /* ── SPLIT ── */
@@ -206,6 +249,12 @@
     .fi { opacity: 0; transform: translateY(18px); transition: 0.7s ease; }
     .fi.v { opacity: 1; transform: translateY(0); }
 
+    /* ── RESPONSIVE TABLET (hero) ── */
+    @media(max-width: 1100px) {
+      .hero-event-img { width: 120px; height: 120px; }
+      .hero h1 { font-size: 48px; }
+    }
+
     /* ── RESPONSIVE MOBILE ── */
     @media(max-width: 900px) {
 
@@ -218,8 +267,20 @@
 
       /* Hero */
       .hero { padding: 48px 24px 32px; }
+      .hero-inner { flex-direction: column; gap: 32px; align-items: stretch; }
       .hero h1 { font-size: 36px; }
       .hero-sub { max-width: 100%; }
+
+      /* Hero event teaser su mobile */
+      .hero-event {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        order: -1; /* lo mette sopra al titolo su mobile, opzionale: rimuovi se vuoi sotto */
+      }
+      .hero-event-info { font-size: 12px; }
+      .hero-event-img { width: 100px; height: 100px; }
 
       /* Split — colonna singola, no scroll orizzontale */
       .split {
@@ -314,8 +375,19 @@
   </div>
 
   <section class="hero fi">
-    <h1>Gesto di cura,<br>atto di custodia</h1>
-    <p class="hero-sub">Progetto arts-based di risignificazione metasemica dei luoghi alpini e delle aree interne. Arte, design e partecipazione come strumenti per reinterpretare il paesaggio e il rapporto metromontano.</p>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>Gesto di cura,<br>atto di custodia</h1>
+        <p class="hero-sub">Progetto arts-based di risignificazione metasemica dei luoghi alpini e delle aree interne. Arte, design e partecipazione come strumenti per reinterpretare il paesaggio e il rapporto metromontano.</p>
+      </div>
+      <div class="hero-event">
+        <div class="hero-event-info">
+          <div class="hero-event-date">07 GIU 2026<br>10:00 — 18:00<br>Monte Maddalena</div>
+          <a href="https://www.eventbrite.it/e/kidsmeetalps-tickets-1988148287046?aff=oddtdtcreator" target="_blank" class="hero-event-link">EVENTO GRATUITO<br>PRENOTAZIONE SU EVENTBRITE</a>
+        </div>
+        <img src="pic/BrrEhShhAh2.png" alt="Kidsmeetalps Brescia 07 giugno 2026" class="hero-event-img">
+      </div>
+    </div>
   </section>
 
   <div id="gallery" class="scroll-anchor"></div>
